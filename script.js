@@ -8,7 +8,17 @@ const divide = allButtons[11]
 const clear = allButtons[14]
 
 let numbers = []
+let count = 0
 
+
+for(let i=0;i<16;i++){
+allButtons[i].addEventListener('click',()=>{
+    if(count===2){
+        displayText.textContent=``
+        count = 1
+    }
+})
+}
 
 
 // NUMBER-INDEX GUIDE
@@ -24,6 +34,7 @@ let numbers = []
     // * ->15
     // = -> 13
     // AC -> 14
+
 
 function storeAndClear(){
     numbers.push(Number(displayText.textContent))
@@ -59,19 +70,48 @@ clear.addEventListener('click',()=>{
     displayText.textContent = ``
 })
 
-add.addEventListener('click',()=>{
-
-    storeAndClear()
-
+function displayState(total){
     if(numbers.length === 2){
-        let total = numbers[0]+numbers[1]
         console.log(total)
         numbers.length = 0
         numbers.push(total)
         displayText.textContent = total
     }
 
-    
-   
+}
 
+add.addEventListener('click',()=>{
+
+    storeAndClear()
+    let total = numbers[0]+numbers[1]
+    displayState(total)
+    
+    count++
+})
+
+sub.addEventListener('click',()=>{
+
+    storeAndClear()
+    let total = numbers[0]-numbers[1]
+    displayState(total)
+    
+    count++
+})
+
+multiply.addEventListener('click',()=>{
+
+    storeAndClear()
+    let total = numbers[0]/numbers[1]
+    displayState(total)
+    
+    count++
+})
+
+divide.addEventListener('click',()=>{
+
+    storeAndClear()
+    let total = numbers[0]*numbers[1]
+    displayState(total)
+    
+    count++
 })
