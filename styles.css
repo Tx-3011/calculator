@@ -18,7 +18,7 @@
 
 /* VARIABLES */
 :root{
-    --calcBody: rgb(250, 156, 40);
+    --calcBody: bisque;
     --buttonColor: #ADD784;
     --displayColor: rgb(47, 101, 65);
 }
