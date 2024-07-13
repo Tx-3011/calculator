@@ -101,7 +101,7 @@ sub.addEventListener('click',()=>{
 multiply.addEventListener('click',()=>{
 
     storeAndClear()
-    let total = numbers[0]*numbers[1]
+    let total = numbers[0]/numbers[1]
     displayState(total)
     
     count++
@@ -110,7 +110,7 @@ multiply.addEventListener('click',()=>{
 divide.addEventListener('click',()=>{
 
     storeAndClear()
-    let total = numbers[0]/numbers[1]
+    let total = numbers[0]*numbers[1]
     displayState(total)
     
     count++
