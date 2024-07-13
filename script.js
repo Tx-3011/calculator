@@ -11,14 +11,14 @@ let numbers = []
 let count = 0
 
 
-for(let i=0;i<16;i++){
-allButtons[i].addEventListener('click',()=>{
-    if(count===2){
-        displayText.textContent=``
-        count = 1
-    }
-})
-}
+// for(let i=0;i<16;i++){
+// allButtons[i].addEventListener('click',()=>{
+//     if(count===2){
+//         displayText.textContent=``
+//         count = 1
+//     }
+// })
+// }
 
 
 // NUMBER-INDEX GUIDE
@@ -70,48 +70,87 @@ clear.addEventListener('click',()=>{
     displayText.textContent = ``
 })
 
-function displayState(total){
-    if(numbers.length === 2){
-        console.log(total)
+function additon(a,b){
+    count++
+    return a+b
+}
+
+function subtraction(a,b){
+    return a-b
+}
+
+function multiplication(a,b){
+    return a*b
+}
+
+function division(a,b){
+    return a/b
+}
+
+function operate(operator){
+    if(operator===1){
+
+        let result = additon(numbers[0],numbers[1])
+       
         numbers.length = 0
-        numbers.push(total)
-        displayText.textContent = total
+        numbers.push(result)
+        console.log(`addition result is ${result}`)
+        // displayText.textContent = result
     }
+
+    if(operator===2){
+
+        let result = subtraction(numbers[0],numbers[1])
+       
+        numbers.length = 0
+        numbers.push(result)
+        console.log(`subtraction result is ${result}`)
+        // displayText.textContent = result
+    }
+
+
 
 }
 
 add.addEventListener('click',()=>{
-
     storeAndClear()
-    let total = numbers[0]+numbers[1]
-    displayState(total)
-    
-    count++
+    if(numbers.length===2){
+        operate(1)
+    }
 })
 
 sub.addEventListener('click',()=>{
-
     storeAndClear()
-    let total = numbers[0]-numbers[1]
-    displayState(total)
-    
-    count++
+    if(numbers.length===2){
+        operate(2)
+    }
 })
 
-multiply.addEventListener('click',()=>{
 
-    storeAndClear()
-    let total = numbers[0]/numbers[1]
-    displayState(total)
-    
-    count++
-})
 
-divide.addEventListener('click',()=>{
 
-    storeAndClear()
-    let total = numbers[0]*numbers[1]
-    displayState(total)
-    
-    count++
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
