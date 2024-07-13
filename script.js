@@ -7,20 +7,6 @@ const multiply = allButtons[15]
 const divide = allButtons[11]
 const clear = allButtons[14]
 
-let numbers = []
-let count = 0
-
-
-// for(let i=0;i<16;i++){
-// allButtons[i].addEventListener('click',()=>{
-//     if(count===2){
-//         displayText.textContent=``
-//         count = 1
-//     }
-// })
-// }
-
-
 // NUMBER-INDEX GUIDE
 
     //  1,2,3 -> -1 from the value
@@ -34,6 +20,23 @@ let count = 0
     // * ->15
     // = -> 13
     // AC -> 14
+
+
+let numbers = []
+let count = 1
+let status = 0
+let queue = null
+
+
+for(let i=0;i<16;i++){
+allButtons[i].addEventListener('click',()=>{
+    if(count===2){
+        displayText.textContent=``
+        count = 1
+    }
+})
+}
+
 
 
 function storeAndClear(){
@@ -76,18 +79,23 @@ function additon(a,b){
 }
 
 function subtraction(a,b){
+    count++
     return a-b
 }
 
 function multiplication(a,b){
+    count++
     return a*b
 }
 
 function division(a,b){
+    count++
     return a/b
 }
 
 function operate(operator){
+
+
     if(operator===1){
 
         let result = additon(numbers[0],numbers[1])
@@ -96,6 +104,7 @@ function operate(operator){
         numbers.push(result)
         console.log(`addition result is ${result}`)
         displayText.textContent = result
+        queue = 0
     }
 
     if(operator===2){
@@ -114,14 +123,22 @@ function operate(operator){
 
 add.addEventListener('click',()=>{
     storeAndClear()
-    if(numbers.length===2){
+    queue = 1
+
+
+    if(numbers.length>=2){
         operate(1)
     }
 })
 
+
 sub.addEventListener('click',()=>{
     storeAndClear()
-    if(numbers.length===2){
+    if(queue=1){
+        operate(1)
+        console.log(`the queue is ${queue}`)
+    }
+    if(numbers.length>=2){
         operate(2)
     }
 })
