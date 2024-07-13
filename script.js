@@ -95,7 +95,7 @@ function operate(operator){
         numbers.length = 0
         numbers.push(result)
         console.log(`addition result is ${result}`)
-        // displayText.textContent = result
+        displayText.textContent = result
     }
 
     if(operator===2){
@@ -105,7 +105,7 @@ function operate(operator){
         numbers.length = 0
         numbers.push(result)
         console.log(`subtraction result is ${result}`)
-        // displayText.textContent = result
+        displayText.textContent = result
     }
 
 
