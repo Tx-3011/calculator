@@ -6,6 +6,7 @@ const sub = allButtons[7]
 const multiply = allButtons[15]
 const divide = allButtons[11]
 const clear = allButtons[14]
+const equalsTo = allButtons[13]
 
 // NUMBER-INDEX GUIDE
 
@@ -71,6 +72,7 @@ clear.addEventListener('click',()=>{
     console.log(`all cleared`)
     numbers.length = 0
     displayText.textContent = ``
+    queue= 0
 })
 
 function additon(a,b){
@@ -91,6 +93,7 @@ function multiplication(a,b){
 function division(a,b){
     count++
     return a/b
+    
 }
 
 function operate(operator){
@@ -118,20 +121,70 @@ function operate(operator){
         queue = 0
     }
 
+    if(operator===3){
 
+        let result = multiplication(numbers[0],numbers[1])
+       
+        numbers.length = 0
+        numbers.push(result)
+        console.log(`multiplication result is ${result}`)
+        displayText.textContent = result
+        queue = 0
+    }
 
+    if(operator===4){
+
+        if(numbers[1]===0){
+            let statement = "lol"
+
+        numbers.length = 0
+        numbers.push(statement)
+        console.log(`divison statement is infinity`)
+        displayText.textContent = statement
+        queue = 0
+
+        }
+
+        else{
+
+        let result = division(numbers[0],numbers[1])
+       
+        numbers.length = 0
+        numbers.push(result)
+        console.log(`divison result is ${result}`)
+        displayText.textContent = result
+        queue = 0
+
+        }
+    }
+
+    
 }
 
-add.addEventListener('click',()=>{
-    storeAndClear()
+
+function handleQueue(){
     if(queue===1){
         operate(1)
-        console.log(`the queue is ${queue} in add (1)`)
+        console.log(`the queue is ${queue} in sub (1)`)
     }
     if(queue===2){
         operate(2)
-        console.log(`the queue is ${queue} in add (2)`)
+        console.log(`the queue is ${queue} in sub (2)`)
     }
+    if(queue===3){
+        operate(3)
+        console.log(`the queue is ${queue} in multiply (3)`)
+    }
+    if(queue===4){
+        operate(4)
+        console.log(`the queue is ${queue} in divide (4)`)
+    }
+}
+
+
+add.addEventListener('click',()=>{
+    storeAndClear()
+    handleQueue()
 
     queue = 1
 
@@ -144,14 +197,7 @@ add.addEventListener('click',()=>{
 
 sub.addEventListener('click',()=>{
     storeAndClear()
-    if(queue===1){
-        operate(1)
-        console.log(`the queue is ${queue} in sub (1)`)
-    }
-    if(queue===2){
-        operate(2)
-        console.log(`the queue is ${queue} in sub (2)`)
-    }
+    handleQueue()
 
     queue=2
 
@@ -161,8 +207,37 @@ sub.addEventListener('click',()=>{
 })
 
 
+multiply.addEventListener('click',()=>{
+
+    storeAndClear()
+    handleQueue()
+
+    queue=3
+
+    if(numbers.length>=2){
+        operate(3)
+    }
+})
+
+divide.addEventListener('click',()=>{
+
+    storeAndClear()
+    handleQueue()
+
+    queue=4
+
+    if(numbers.length>=2){
+        operate(4)
+    }
+
+})
 
 
+equalsTo.addEventListener('click',()=>{
+    storeAndClear()
+    operate(queue)
+    queue = 0
+})
 
 
 
