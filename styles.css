@@ -98,6 +98,12 @@ button{
     font-family: sans-serif;
 }
 
-button:active{
-    background-color:#add784 ;
+button:hover{
+    background-color:#dc9797 ;
 }
+
+button:active{
+    background-color:#d77070 ;
+}
+
+
