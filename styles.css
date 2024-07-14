@@ -16,6 +16,15 @@
 
 
 
+/* VARIABLES */
+:root{
+    --calcBody: bisque;
+    --buttonColor: #ADD784;
+    --displayColor: rgb(47, 101, 65);
+}
+
+
+
 
 /* Design Elements */
 
@@ -33,7 +42,7 @@ body{
 }
 
 .calcBody{
-    background-color: bisque;
+    background-color: var(--calcBody);
     height: 37rem;
     width: 30rem;
     border-radius: 15px;
@@ -44,7 +53,7 @@ body{
 }
 
 .display{
-    background-color: rgb(47, 101, 65);
+    background-color: var(--displayColor);
     margin: 2.5rem;
     margin-bottom: 1.25rem;
     height: 7.5rem;
@@ -82,8 +91,8 @@ button{
     margin-bottom: 0.7rem;
 
     border-radius: 6px;
-    border: 1px dashed darkgreen;
-    background-color: #b7ff6e;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: var(--buttonColor);
 
     font-size: 1.5rem;
     font-family: sans-serif;
