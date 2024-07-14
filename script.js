@@ -115,6 +115,7 @@ function operate(operator){
         numbers.push(result)
         console.log(`subtraction result is ${result}`)
         displayText.textContent = result
+        queue = 0
     }
 
 
@@ -123,6 +124,15 @@ function operate(operator){
 
 add.addEventListener('click',()=>{
     storeAndClear()
+    if(queue===1){
+        operate(1)
+        console.log(`the queue is ${queue} in add (1)`)
+    }
+    if(queue===2){
+        operate(2)
+        console.log(`the queue is ${queue} in add (2)`)
+    }
+
     queue = 1
 
 
@@ -134,10 +144,17 @@ add.addEventListener('click',()=>{
 
 sub.addEventListener('click',()=>{
     storeAndClear()
-    if(queue=1){
+    if(queue===1){
         operate(1)
-        console.log(`the queue is ${queue}`)
+        console.log(`the queue is ${queue} in sub (1)`)
     }
+    if(queue===2){
+        operate(2)
+        console.log(`the queue is ${queue} in sub (2)`)
+    }
+
+    queue=2
+
     if(numbers.length>=2){
         operate(2)
     }
