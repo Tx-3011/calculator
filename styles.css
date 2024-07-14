@@ -92,3 +92,7 @@ button{
 button:active{
     background-color:#add784 ;
 }
+
+.operator{
+    background-color: rgb(255, 185, 56);
+}
