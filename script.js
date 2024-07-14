@@ -96,6 +96,12 @@ function division(a,b){
     
 }
 
+function displayState(result){
+    numbers.length = 0
+    numbers.push(result)
+    displayText.textContent = Math.round(result*1000)/1000
+}
+
 function operate(operator){
 
 
@@ -103,10 +109,8 @@ function operate(operator){
 
         let result = additon(numbers[0],numbers[1])
        
-        numbers.length = 0
-        numbers.push(result)
+        displayState(result)
         console.log(`addition result is ${result}`)
-        displayText.textContent = result
         queue = 0
     }
 
@@ -114,21 +118,16 @@ function operate(operator){
 
         let result = subtraction(numbers[0],numbers[1])
        
-        numbers.length = 0
-        numbers.push(result)
+        displayState(result)
         console.log(`subtraction result is ${result}`)
-        displayText.textContent = result
         queue = 0
     }
 
     if(operator===3){
 
-        let result = multiplication(numbers[0],numbers[1])
-       
-        numbers.length = 0
-        numbers.push(result)
+        let result = multiplication(numbers[0],numbers[1])    
+        displayState(result)
         console.log(`multiplication result is ${result}`)
-        displayText.textContent = result
         queue = 0
     }
 
@@ -136,29 +135,21 @@ function operate(operator){
 
         if(numbers[1]===0){
             let statement = "lol"
-
-        numbers.length = 0
-        numbers.push(statement)
-        console.log(`divison statement is infinity`)
-        displayText.textContent = statement
-        queue = 0
+            displayState(statement)
+            console.log(`divison statement is infinity`)
+            queue = 0
 
         }
 
         else{
 
         let result = division(numbers[0],numbers[1])
-       
-        numbers.length = 0
-        numbers.push(result)
+        displayState(result)
         console.log(`divison result is ${result}`)
-        displayText.textContent = result
         queue = 0
 
         }
-    }
-
-    
+    }   
 }
 
 
