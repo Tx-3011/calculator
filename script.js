@@ -6,20 +6,7 @@ const sub = allButtons[7]
 const multiply = allButtons[15]
 const divide = allButtons[11]
 const clear = allButtons[14]
-
-let numbers = []
-let count = 0
-
-
-for(let i=0;i<16;i++){
-allButtons[i].addEventListener('click',()=>{
-    if(count===2){
-        displayText.textContent=``
-        count = 1
-    }
-})
-}
-
+const equalsTo = allButtons[13]
 
 // NUMBER-INDEX GUIDE
 
@@ -34,6 +21,23 @@ allButtons[i].addEventListener('click',()=>{
     // * ->15
     // = -> 13
     // AC -> 14
+
+
+let numbers = []
+let count = 1
+let status = 0
+let queue = null
+
+
+for(let i=0;i<16;i++){
+allButtons[i].addEventListener('click',()=>{
+    if(count===2){
+        displayText.textContent=``
+        count = 1
+    }
+})
+}
+
 
 
 function storeAndClear(){
@@ -68,50 +72,185 @@ clear.addEventListener('click',()=>{
     console.log(`all cleared`)
     numbers.length = 0
     displayText.textContent = ``
+    queue= 0
 })
 
-function displayState(total){
-    if(numbers.length === 2){
-        console.log(total)
-        numbers.length = 0
-        numbers.push(total)
-        displayText.textContent = total
-    }
-
+function additon(a,b){
+    count++
+    return a+b
 }
 
-add.addEventListener('click',()=>{
-
-    storeAndClear()
-    let total = numbers[0]+numbers[1]
-    displayState(total)
-    
+function subtraction(a,b){
     count++
+    return a-b
+}
+
+function multiplication(a,b){
+    count++
+    return a*b
+}
+
+function division(a,b){
+    count++
+    return a/b
+    
+}
+
+function displayState(result){
+    numbers.length = 0
+    numbers.push(result)
+    displayText.textContent = Math.round(result*1000)/1000
+}
+
+function operate(operator){
+
+
+    if(operator===1){
+
+        let result = additon(numbers[0],numbers[1])
+       
+        displayState(result)
+        console.log(`addition result is ${result}`)
+        queue = 0
+    }
+
+    if(operator===2){
+
+        let result = subtraction(numbers[0],numbers[1])
+       
+        displayState(result)
+        console.log(`subtraction result is ${result}`)
+        queue = 0
+    }
+
+    if(operator===3){
+
+        let result = multiplication(numbers[0],numbers[1])    
+        displayState(result)
+        console.log(`multiplication result is ${result}`)
+        queue = 0
+    }
+
+    if(operator===4){
+
+        if(numbers[1]===0){
+            let statement = "lol"
+            displayState(statement)
+            console.log(`divison statement is infinity`)
+            queue = 0
+
+        }
+
+        else{
+
+        let result = division(numbers[0],numbers[1])
+        displayState(result)
+        console.log(`divison result is ${result}`)
+        queue = 0
+
+        }
+    }   
+}
+
+
+function handleQueue(){
+    if(queue===1){
+        operate(1)
+        console.log(`the queue is ${queue} in sub (1)`)
+    }
+    if(queue===2){
+        operate(2)
+        console.log(`the queue is ${queue} in sub (2)`)
+    }
+    if(queue===3){
+        operate(3)
+        console.log(`the queue is ${queue} in multiply (3)`)
+    }
+    if(queue===4){
+        operate(4)
+        console.log(`the queue is ${queue} in divide (4)`)
+    }
+}
+
+
+add.addEventListener('click',()=>{
+    storeAndClear()
+    handleQueue()
+
+    queue = 1
+
+
+    if(numbers.length>=2){
+        operate(1)
+    }
 })
+
 
 sub.addEventListener('click',()=>{
-
     storeAndClear()
-    let total = numbers[0]-numbers[1]
-    displayState(total)
-    
-    count++
+    handleQueue()
+
+    queue=2
+
+    if(numbers.length>=2){
+        operate(2)
+    }
 })
+
 
 multiply.addEventListener('click',()=>{
 
     storeAndClear()
-    let total = numbers[0]/numbers[1]
-    displayState(total)
-    
-    count++
+    handleQueue()
+
+    queue=3
+
+    if(numbers.length>=2){
+        operate(3)
+    }
 })
 
 divide.addEventListener('click',()=>{
 
     storeAndClear()
-    let total = numbers[0]*numbers[1]
-    displayState(total)
-    
-    count++
+    handleQueue()
+
+    queue=4
+
+    if(numbers.length>=2){
+        operate(4)
+    }
+
 })
+
+
+equalsTo.addEventListener('click',()=>{
+    storeAndClear()
+    operate(queue)
+    queue = 0
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
