@@ -18,9 +18,11 @@
 
 /* VARIABLES */
 :root{
-    --calcBody: bisque;
-    --buttonColor: #ADD784;
+    --calcBody: #F1FAEE;
+    --buttonColor: #457B9D;
     --displayColor: rgb(47, 101, 65);
+    --OPcolor: #A8DADC;
+    --BGcolor: #2d2a32;
 }
 
 
@@ -39,6 +41,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: var(--BGcolor);
 }
 
 .calcBody{
@@ -99,7 +102,7 @@ button{
 }
 
 .operator{
-    background-color: aqua;
+    background-color: var(--OPcolor);
     
 }
 
