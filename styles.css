@@ -43,7 +43,7 @@ body{
 
 .calcBody{
     background-color: var(--calcBody);
-    height: 37rem;
+    height: 41rem;
     width: 30rem;
     border-radius: 15px;
 
@@ -98,6 +98,11 @@ button{
     font-family: sans-serif;
 }
 
+.operator{
+    background-color: aqua;
+    
+}
+
 button:hover{
     background-color:#dc9797 ;
 }
@@ -106,4 +111,14 @@ button:active{
     background-color:#d77070 ;
 }
 
+.zero{
+    width: 14.9rem;
+    /* justify-self: flex-start; */
+    
+    
+}
 
+.equals,
+.AC{
+    width: 9.7rem;
+}

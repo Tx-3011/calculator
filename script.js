@@ -23,6 +23,7 @@ const equalsTo = allButtons[13]
     // AC -> 14
 
 
+let result
 let numbers = []
 let count = 1
 let status = 0
@@ -107,7 +108,7 @@ function operate(operator){
 
     if(operator===1){
 
-        let result = additon(numbers[0],numbers[1])
+        result = additon(numbers[0],numbers[1])
        
         displayState(result)
         console.log(`addition result is ${result}`)
@@ -116,7 +117,7 @@ function operate(operator){
 
     if(operator===2){
 
-        let result = subtraction(numbers[0],numbers[1])
+        result = subtraction(numbers[0],numbers[1])
        
         displayState(result)
         console.log(`subtraction result is ${result}`)
@@ -125,7 +126,7 @@ function operate(operator){
 
     if(operator===3){
 
-        let result = multiplication(numbers[0],numbers[1])    
+        result = multiplication(numbers[0],numbers[1])    
         displayState(result)
         console.log(`multiplication result is ${result}`)
         queue = 0
@@ -143,13 +144,20 @@ function operate(operator){
 
         else{
 
-        let result = division(numbers[0],numbers[1])
+        result = division(numbers[0],numbers[1])
         displayState(result)
         console.log(`divison result is ${result}`)
         queue = 0
 
         }
-    }   
+    }
+    
+    if(operator===5){
+        operate(queue)
+        displayState(result)
+        console.log( `total result is ${result}`)
+        queue = 0
+    }
 }
 
 
@@ -226,9 +234,11 @@ divide.addEventListener('click',()=>{
 
 equalsTo.addEventListener('click',()=>{
     storeAndClear()
-    operate(queue)
-    queue = 0
+    operate(5)
 })
+
+
+
 
 
 
