@@ -99,10 +99,13 @@ button{
 
     font-size: 1.5rem;
     font-family: sans-serif;
+
+    box-shadow: 5px 10px 18px #457B9D;
 }
 
 .operator{
     background-color: var(--OPcolor);
+    box-shadow: 5px 10px 18px var(--OPcolor);
     
 }
 
@@ -112,16 +115,56 @@ button:hover{
 
 button:active{
     background-color:#d77070 ;
+    box-shadow: none;
 }
 
 .zero{
     width: 14.9rem;
-    /* justify-self: flex-start; */
-    
-    
 }
 
 .equals,
 .AC{
     width: 9.7rem;
+}
+
+@media screen and (max-width:431px) {
+
+    .display{
+        margin: 1.875rem; /* 2.5rem * 0.75 */
+        margin-bottom: 0.9375rem; /* 1.25rem * 0.75 */
+        height: 5.625rem; /* 7.5rem * 0.75 */
+        width: 18.75rem; /* 25rem * 0.75 */
+        border-radius: 6px; /* 8px * 0.75 */
+        
+    }
+
+    button{
+        height: 3.375rem; /* 4.5rem * 0.75 */
+        width: 3.375rem; /* 4.5rem * 0.75 */
+        margin-left: 0.525rem; /* 0.7rem * 0.75 */
+        margin-bottom: 0.525rem; /* 0.7rem * 0.75 */
+
+    }
+
+    .buttonGrid{
+        margin: 1.875rem;
+        margin-top: 0.9375rem;
+
+    }
+
+    .calcBody{
+        height: 30.75rem;
+        width: 22.5rem;
+        border-radius: 15px;
+    }
+
+    .zero{
+        width: 11.175rem;
+    }
+    
+    .equals,
+    .AC{
+    width: 7.275rem;
+}
+
 }
