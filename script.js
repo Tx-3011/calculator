@@ -3,10 +3,10 @@ const buttonGrid = document.querySelector('#buttonGrid')
 const allButtons = buttonGrid.querySelectorAll('button')
 const add = allButtons[3]
 const sub = allButtons[7]
-const multiply = allButtons[15]
+const multiply = allButtons[13]
 const divide = allButtons[11]
 const clear = allButtons[14]
-const equalsTo = allButtons[13]
+const equalsTo = allButtons[15]
 
 // NUMBER-INDEX GUIDE
 

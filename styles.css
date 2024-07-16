@@ -53,6 +53,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    box-shadow: 10px 10px 5px #ddd92a;
 }
 
 .display{
@@ -139,10 +141,10 @@ button:active{
     }
 
     button{
-        height: 3.375rem; /* 4.5rem * 0.75 */
-        width: 3.375rem; /* 4.5rem * 0.75 */
-        margin-left: 0.525rem; /* 0.7rem * 0.75 */
-        margin-bottom: 0.525rem; /* 0.7rem * 0.75 */
+        height: 3.375rem;
+        width: 3.375rem; 
+        margin-left: 0.525rem; 
+        margin-bottom: 0.525rem; 
 
     }
 
